@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using MVCCoreSignalR.Data;
+using MVCCoreSignalR.Data.Seeed;
 using SignalRTest.Hubs;
 
 namespace MVCCoreSignalR
@@ -91,6 +92,7 @@ namespace MVCCoreSignalR
                 endpoints.MapHub<ChatHub>("/chathub");
 
             });
+            SeedData.SeedAsync(app.ApplicationServices, env, Configuration);
         }
     }
 }
